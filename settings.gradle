@@ -1,0 +1,3 @@
+include ':lineview'
+include ':app'
+rootProject.name = "LineViewApp"

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <me.foolishchow.android.lineview.LinearLineView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        app:border_bottom_color="#333333"
+        app:border_bottom_width="2px"
+        app:lv_label="标签1"
+        app:lv_label_color="@color/colorPrimary"
+        app:lv_label_text_size="20dp"
+        app:lv_left_icon="@mipmap/icon_common_search_drak"
+        app:lv_right_icon="@mipmap/icon_common_right"
+        tools:ignore="PxUsage">
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#ffff00"
+            android:text="aaaa" />
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#ffff00"
+            android:text="aaaa" />
+    </me.foolishchow.android.lineview.LinearLineView>
+
+    <me.foolishchow.android.lineview.RelativeLineView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        app:border_bottom_color="#333333"
+        app:border_bottom_width="2px"
+        app:lv_label="标签1"
+        app:lv_label_color="@color/colorPrimary"
+        app:lv_label_text_size="20dp"
+        app:lv_left_icon="@mipmap/icon_common_search_drak"
+        app:lv_right_icon="@mipmap/icon_common_right"
+        tools:ignore="PxUsage">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="#ffff00"
+            android:text="aaaa" />
+    </me.foolishchow.android.lineview.RelativeLineView>
+
+</LinearLayout>

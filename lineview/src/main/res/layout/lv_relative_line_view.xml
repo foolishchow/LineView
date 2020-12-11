@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_height="wrap_content"
+    tools:parentTag="android.widget.LinearLayout">
+    <ImageView
+        android:id="@+id/line_view_icon_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_marginRight="5dp"
+        tools:src="@mipmap/icon_common_search_drak"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/line_view_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        tools:text="标签"
+        tools:textColor="#666666" />
+
+    <RelativeLayout
+        tools:layout_gravity="center_vertical"
+        tools:layout_weight="1"
+        android:id="@+id/line_view_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/line_view_icon_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:src="@mipmap/icon_common_right"
+        tools:visibility="visible"
+        tools:ignore="ContentDescription" />
+</merge>

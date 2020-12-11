@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="border_color" format="color" />
+    <attr name="border_width" format="dimension" />
+    <attr name="border_bottom_color" format="color" />
+    <attr name="border_bottom_width" format="dimension" />
+    <attr name="border_bottom_adjust_padding" format="enum" >
+        <enum name="none" value="0"/>
+        <enum name="left" value="1"/>
+        <enum name="right" value="2"/>
+        <enum name="all" value="3"/>
+    </attr>
+    <attr name="border_top_color" format="color" />
+    <attr name="border_top_width" format="dimension" />
+    <attr name="border_top_adjust_padding" format="enum" >
+        <enum name="none" value="0"/>
+        <enum name="left" value="1"/>
+        <enum name="right" value="2"/>
+        <enum name="all" value="3"/>
+    </attr>
+
+    <declare-styleable name="BaseLineView">
+        <attr name="border_bottom_adjust_padding" />
+        <attr name="border_top_adjust_padding" />
+        <attr name="border_bottom_color" />
+        <attr name="border_bottom_width" />
+        <attr name="border_top_color" />
+        <attr name="border_top_width" />
+        <attr name="lv_label_content_background" format="reference" />
+        <attr name="lv_label_padding" format="dimension" />
+        <attr name="lv_label" format="string" />
+        <attr name="lv_height" format="dimension" />
+        <attr name="lv_label_align" format="enum">
+            <enum name="start" value="0" />
+            <enum name="center" value="1" />
+            <enum name="end" value="2" />
+        </attr>
+        <attr name="lv_label_text_size" format="dimension" />
+        <attr name="lv_label_color" format="color" />
+        <attr name="lv_label_width" format="dimension" />
+        <attr name="lv_left_icon" format="reference" />
+        <attr name="lv_right_icon" format="reference" />
+        <attr name="lv_left_icon_width" format="dimension" />
+        <attr name="lv_left_icon_height" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="RelativeLineView_Layout">
+        <!-- Positions the right edge of this view to the left of the given anchor view ID.
+             Accommodates right margin of this view and left margin of anchor view. -->
+        <attr name="android:layout_toLeftOf" format="reference" />
+        <!-- Positions the left edge of this view to the right of the given anchor view ID.
+            Accommodates left margin of this view and right margin of anchor view. -->
+        <attr name="android:layout_toRightOf" format="reference" />
+        <!-- Positions the bottom edge of this view above the given anchor view ID.
+            Accommodates bottom margin of this view and top margin of anchor view. -->
+        <attr name="android:layout_above" format="reference" />
+        <!-- Positions the top edge of this view below the given anchor view ID.
+            Accommodates top margin of this view and bottom margin of anchor view. -->
+        <attr name="android:layout_below" format="reference" />
+        <!-- Positions the baseline of this view on the baseline of the given anchor view ID. -->
+        <attr name="android:layout_alignBaseline" format="reference" />
+        <!-- Makes the left edge of this view match the left edge of the given anchor view ID.
+            Accommodates left margin. -->
+        <attr name="android:layout_alignLeft" format="reference" />
+        <!-- Makes the top edge of this view match the top edge of the given anchor view ID.
+            Accommodates top margin. -->
+        <attr name="android:layout_alignTop" format="reference" />
+        <!-- Makes the right edge of this view match the right edge of the given anchor view ID.
+            Accommodates right margin. -->
+        <attr name="android:layout_alignRight" format="reference" />
+        <!-- Makes the bottom edge of this view match the bottom edge of the given anchor view ID.
+            Accommodates bottom margin. -->
+        <attr name="android:layout_alignBottom" format="reference" />
+        <!-- If true, makes the left edge of this view match the left edge of the parent.
+            Accommodates left margin. -->
+        <attr name="android:layout_alignParentLeft" format="boolean" />
+        <!-- If true, makes the top edge of this view match the top edge of the parent.
+            Accommodates top margin. -->
+        <attr name="android:layout_alignParentTop" format="boolean" />
+        <!-- If true, makes the right edge of this view match the right edge of the parent.
+            Accommodates right margin. -->
+        <attr name="android:layout_alignParentRight" format="boolean" />
+        <!-- If true, makes the bottom edge of this view match the bottom edge of the parent.
+            Accommodates bottom margin. -->
+        <attr name="android:layout_alignParentBottom" format="boolean" />
+        <!-- If true, centers this child horizontally and vertically within its parent. -->
+        <attr name="android:layout_centerInParent" format="boolean" />
+        <!-- If true, centers this child horizontally within its parent. -->
+        <attr name="android:layout_centerHorizontal" format="boolean" />
+        <!-- If true, centers this child vertically within its parent. -->
+        <attr name="android:layout_centerVertical" format="boolean" />
+        <!-- If set to true, the parent will be used as the anchor when the anchor cannot be
+             be found for layout_toLeftOf, layout_toRightOf, etc. -->
+        <attr name="android:layout_alignWithParentIfMissing" format="boolean" />
+        <!-- Positions the end edge of this view to the start of the given anchor view ID.
+             Accommodates end margin of this view and start margin of anchor view. -->
+        <attr name="android:layout_toStartOf" format="reference" />
+        <!-- Positions the start edge of this view to the end of the given anchor view ID.
+             Accommodates start margin of this view and end margin of anchor view. -->
+        <attr name="android:layout_toEndOf" format="reference" />
+        <!-- Makes the start edge of this view match the start edge of the given anchor view ID.
+            Accommodates start margin. -->
+        <attr name="android:layout_alignStart" format="reference" />
+        <!-- Makes the end edge of this view match the end edge of the given anchor view ID.
+            Accommodates end margin. -->
+        <attr name="android:layout_alignEnd" format="reference" />
+        <!-- If true, makes the start edge of this view match the start edge of the parent.
+            Accommodates start margin. -->
+        <attr name="android:layout_alignParentStart" format="boolean" />
+        <!-- If true, makes the end edge of this view match the end edge of the parent.
+            Accommodates end margin. -->
+        <attr name="android:layout_alignParentEnd" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="LinearLineView_Layout">
+        <!-- Indicates how much of the extra space in the LinearLayout is
+        allocated to the view associated with these LayoutParams. Specify
+        0 if the view should not be stretched. Otherwise the extra pixels
+        will be pro-rated among all views whose weight is greater than 0. -->
+        <attr name="android:layout_weight" format="float" />
+        <!-- Gravity specifies how a component should be placed in its group of cells.
+        The default is {@link android.view.Gravity#TOP}.
+        See {@link android.widget.LinearLayout#setGravity(int)}. -->
+        <attr name="android:layout_gravity" />
+    </declare-styleable>
+</resources>
