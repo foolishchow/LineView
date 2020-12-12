@@ -10,26 +10,35 @@
     <me.foolishchow.android.lineview.LinearLineView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#ff00ff"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
         app:border_bottom_color="#333333"
-        app:border_bottom_width="2px"
+        app:border_bottom_width="0dp"
+        app:lv_content_background="@drawable/bg_test"
+        app:lv_content_height="44dp"
+        app:lv_content_padding_left="10dp"
+        app:lv_content_padding_right="10dp"
         app:lv_label="标签1"
         app:lv_label_color="@color/colorPrimary"
         app:lv_label_text_size="20dp"
         app:lv_left_icon="@mipmap/line_view_icon_common_search_drak"
         app:lv_right_icon="@mipmap/line_view_icon_common_right"
         tools:ignore="PxUsage">
+
         <TextView
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
             android:background="#ffff00"
             android:text="aaaa" />
+
         <TextView
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
             android:background="#ffff00"
             android:text="aaaa" />
     </me.foolishchow.android.lineview.LinearLineView>
@@ -41,6 +50,8 @@
         android:paddingRight="12dp"
         app:border_bottom_color="#333333"
         app:border_bottom_width="2px"
+        app:lv_content_background="@drawable/bg_test"
+        app:lv_content_height="40dp"
         app:lv_label="标签1"
         app:lv_label_color="@color/colorPrimary"
         app:lv_label_text_size="20dp"

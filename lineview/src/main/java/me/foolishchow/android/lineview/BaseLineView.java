@@ -92,7 +92,13 @@ public abstract class BaseLineView extends ViewGroup {
     private int mLabelTextSize;
     private int mLabelPadding;
 
-    private float mContentHeight = LayoutParams.WRAP_CONTENT;
+    private int mContentMarginLeft = 0;
+    private int mContentMarginRight = 0;
+    private int mContentPaddingLeft = 0;
+    private int mContentPaddingTop = 0;
+    private int mContentPaddingRight = 0;
+    private int mContentPaddingBottom = 0;
+    private int mContentHeight = LayoutParams.WRAP_CONTENT;
     private int mContentBackground = -1;
 
     @BorderAdjustPadding
@@ -107,33 +113,41 @@ public abstract class BaseLineView extends ViewGroup {
 
 
     private void initAttribute(Context context, @Nullable AttributeSet attrs) {
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.BaseLineView);
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.BaseLineView);
 
-        mLeftIconWidth = typedArray.getDimension(R.styleable.BaseLineView_lv_left_icon_width, LayoutParams.WRAP_CONTENT);
-        mLeftIconHeight = typedArray.getDimension(R.styleable.BaseLineView_lv_left_icon_height, LayoutParams.WRAP_CONTENT);
-        mLeftIconSrc = typedArray.getResourceId(R.styleable.BaseLineView_lv_left_icon, -1);
+        mLeftIconWidth = ta.getDimension(R.styleable.BaseLineView_lv_left_icon_width, LayoutParams.WRAP_CONTENT);
+        mLeftIconHeight = ta.getDimension(R.styleable.BaseLineView_lv_left_icon_height, LayoutParams.WRAP_CONTENT);
+        mLeftIconSrc = ta.getResourceId(R.styleable.BaseLineView_lv_left_icon, -1);
 
-        mRightIconSrc = typedArray.getResourceId(R.styleable.BaseLineView_lv_right_icon, -1);
+        mRightIconSrc = ta.getResourceId(R.styleable.BaseLineView_lv_right_icon, -1);
 
-        mLabelText = typedArray.getString(R.styleable.BaseLineView_lv_label);
-        mLabelTextSize = typedArray.getDimensionPixelSize(R.styleable.BaseLineView_lv_label_text_size, SizeUtils.sp2px(14));
-        mLabelPadding = typedArray.getDimensionPixelSize(R.styleable.BaseLineView_lv_label_padding, 0);
-        mLabelTextColor = typedArray.getInt(R.styleable.BaseLineView_lv_label_color, Color.rgb(0x99, 0x99, 0x99));
-        mLabelWidth = typedArray.getDimensionPixelSize(R.styleable.BaseLineView_lv_label_width, LayoutParams.WRAP_CONTENT);
-        mLabelAlign = typedArray.getInt(R.styleable.BaseLineView_lv_label_align, LABEL_TEXT_ALIGN_START);
+        mLabelText = ta.getString(R.styleable.BaseLineView_lv_label);
+        mLabelTextSize = ta.getDimensionPixelSize(R.styleable.BaseLineView_lv_label_text_size, SizeUtils.sp2px(14));
+        mLabelPadding = ta.getDimensionPixelSize(R.styleable.BaseLineView_lv_label_padding, 0);
+        mLabelTextColor = ta.getInt(R.styleable.BaseLineView_lv_label_color, Color.rgb(0x99, 0x99, 0x99));
+        mLabelWidth = ta.getDimensionPixelSize(R.styleable.BaseLineView_lv_label_width, LayoutParams.WRAP_CONTENT);
+        mLabelAlign = ta.getInt(R.styleable.BaseLineView_lv_label_align, LABEL_TEXT_ALIGN_START);
 
-        mContentHeight = typedArray.getDimension(R.styleable.BaseLineView_lv_content_height,LayoutParams.WRAP_CONTENT);
-        mContentBackground = typedArray.getResourceId(R.styleable.BaseLineView_lv_content_background, -1);
+        mContentMarginLeft = (int) ta.getDimension(R.styleable.BaseLineView_lv_content_margin_left, 0);
+        mContentMarginRight = (int) ta.getDimension(R.styleable.BaseLineView_lv_content_margin_right, 0);
 
-        mBorderTopColor = typedArray.getColor(R.styleable.BaseLineView_border_top_color, mBorderTopColor);
-        mBorderTopWidth = (int) typedArray.getDimension(R.styleable.BaseLineView_border_top_width, 0);
-        mBorderBottomAdjustPadding = typedArray.getInt(R.styleable.BaseLineView_border_bottom_adjust_padding, BORDER_ADJUST_PADDING_NONE);
+        mContentPaddingLeft = (int) ta.getDimension(R.styleable.BaseLineView_lv_content_padding_left, 0);
+        mContentPaddingTop = (int) ta.getDimension(R.styleable.BaseLineView_lv_content_padding_top, 0);
+        mContentPaddingRight = (int) ta.getDimension(R.styleable.BaseLineView_lv_content_padding_right, 0);
+        mContentPaddingBottom = (int) ta.getDimension(R.styleable.BaseLineView_lv_content_padding_bottom, 0);
 
-        mBorderBottomWidth = (int) typedArray.getDimension(R.styleable.BaseLineView_border_bottom_width, 0);
-        mBorderBottomColor = typedArray.getColor(R.styleable.BaseLineView_border_bottom_color, mBorderBottomColor);
-        mBorderTopAdjustPadding = typedArray.getInt(R.styleable.BaseLineView_border_top_adjust_padding, BORDER_ADJUST_PADDING_NONE);
+        mContentHeight = (int) ta.getDimension(R.styleable.BaseLineView_lv_content_height, LayoutParams.WRAP_CONTENT);
+        mContentBackground = ta.getResourceId(R.styleable.BaseLineView_lv_content_background, -1);
 
-        typedArray.recycle();
+        mBorderTopColor = ta.getColor(R.styleable.BaseLineView_border_top_color, mBorderTopColor);
+        mBorderTopWidth = (int) ta.getDimension(R.styleable.BaseLineView_border_top_width, 0);
+        mBorderBottomAdjustPadding = ta.getInt(R.styleable.BaseLineView_border_bottom_adjust_padding, BORDER_ADJUST_PADDING_NONE);
+
+        mBorderBottomWidth = (int) ta.getDimension(R.styleable.BaseLineView_border_bottom_width, 0);
+        mBorderBottomColor = ta.getColor(R.styleable.BaseLineView_border_bottom_color, mBorderBottomColor);
+        mBorderTopAdjustPadding = ta.getInt(R.styleable.BaseLineView_border_top_adjust_padding, BORDER_ADJUST_PADDING_NONE);
+
+        ta.recycle();
         setUp();
     }
 
@@ -169,9 +183,9 @@ public abstract class BaseLineView extends ViewGroup {
             mContent.setBackground(ContextCompat.getDrawable(getContext(), mContentBackground));
         }
         LayoutParams lp = mContent.getLayoutParams();
-        lp.height = (int) mContentHeight;
+        lp.height = mContentHeight;
         mContent.setLayoutParams(lp);
-
+        mContent.setPadding(mContentPaddingLeft, mContentPaddingTop, mContentPaddingRight, mContentPaddingBottom);
     }
 
     public void setLabelText(@Nullable String labelText) {
@@ -207,6 +221,7 @@ public abstract class BaseLineView extends ViewGroup {
 
     private int mWidth = 0;
     private int mHeight = 0;
+
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         int left = getPaddingLeft();
@@ -236,8 +251,8 @@ public abstract class BaseLineView extends ViewGroup {
             int measuredHeight = mContent.getMeasuredHeight();
             int measuredWidth = mContent.getMeasuredWidth();
             int pad = (int) ((innerHeight - measuredHeight) * .5f);
-            mContent.layout(left, pad + top, left + measuredWidth, measuredHeight + pad + top);
-            left += measuredWidth;
+            mContent.layout(left + mContentMarginLeft, pad + top, left + mContentMarginLeft + measuredWidth, measuredHeight + pad + top);
+            left += measuredWidth + mContentMarginLeft + mContentMarginRight;
         }
         if (mRightIcon.getVisibility() != GONE) {
             int measuredHeight = mRightIcon.getMeasuredHeight();
@@ -306,12 +321,18 @@ public abstract class BaseLineView extends ViewGroup {
 
 
         if (widthSpecMode == MeasureSpec.EXACTLY) {
-            widthSpec = makeMeasureSpec(widthSize - leftIconWidth - labelWidth - rightIconWidth - getPaddingLeft() - getPaddingRight(), MeasureSpec.EXACTLY);
+            int contentWidth = widthSize
+                    - leftIconWidth - labelWidth - rightIconWidth
+                    - getPaddingLeft() - getPaddingRight()
+                    - mContentMarginLeft - mContentMarginRight;
+            widthSpec = makeMeasureSpec(contentWidth, MeasureSpec.EXACTLY);
         } else {
             widthSpec = makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
         }
 
-        if (heightSpecMode == MeasureSpec.EXACTLY) {
+        if (mContentHeight >= 0) {
+            heightSpec = makeMeasureSpec(mContentHeight, MeasureSpec.EXACTLY);
+        } else if (heightSpecMode == MeasureSpec.EXACTLY) {
             heightSpec = makeMeasureSpec(heightSize - getPaddingTop() - getPaddingBottom() - mBorderTopWidth - mBorderBottomWidth, MeasureSpec.AT_MOST);
         } else {
             heightSpec = makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
@@ -399,7 +420,7 @@ public abstract class BaseLineView extends ViewGroup {
         }
     }
 
-    public boolean isContentLoaded(){
+    public boolean isContentLoaded() {
         return mContent != null;
     }
 

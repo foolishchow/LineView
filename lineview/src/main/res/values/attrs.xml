@@ -28,6 +28,12 @@
         <attr name="border_top_width" />
         <attr name="lv_content_background" format="reference" />
         <attr name="lv_content_height" format="dimension" />
+        <attr name="lv_content_padding_left" format="dimension" />
+        <attr name="lv_content_padding_top" format="dimension" />
+        <attr name="lv_content_padding_right" format="dimension" />
+        <attr name="lv_content_padding_bottom" format="dimension" />
+        <attr name="lv_content_margin_left" format="dimension" />
+        <attr name="lv_content_margin_right" format="dimension" />
         <attr name="lv_label_padding" format="dimension" />
         <attr name="lv_label" format="string" />
         <attr name="lv_label_align" format="enum">
