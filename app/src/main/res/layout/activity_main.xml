@@ -17,8 +17,8 @@
         app:lv_label="标签1"
         app:lv_label_color="@color/colorPrimary"
         app:lv_label_text_size="20dp"
-        app:lv_left_icon="@mipmap/icon_common_search_drak"
-        app:lv_right_icon="@mipmap/icon_common_right"
+        app:lv_left_icon="@mipmap/line_view_icon_common_search_drak"
+        app:lv_right_icon="@mipmap/line_view_icon_common_right"
         tools:ignore="PxUsage">
         <TextView
             android:layout_weight="1"
@@ -44,8 +44,8 @@
         app:lv_label="标签1"
         app:lv_label_color="@color/colorPrimary"
         app:lv_label_text_size="20dp"
-        app:lv_left_icon="@mipmap/icon_common_search_drak"
-        app:lv_right_icon="@mipmap/icon_common_right"
+        app:lv_left_icon="@mipmap/line_view_icon_common_search_drak"
+        app:lv_right_icon="@mipmap/line_view_icon_common_right"
         tools:ignore="PxUsage">
 
         <TextView

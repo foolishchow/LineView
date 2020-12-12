@@ -4,32 +4,32 @@
     <attr name="border_width" format="dimension" />
     <attr name="border_bottom_color" format="color" />
     <attr name="border_bottom_width" format="dimension" />
-    <attr name="border_bottom_adjust_padding" format="enum" >
-        <enum name="none" value="0"/>
-        <enum name="left" value="1"/>
-        <enum name="right" value="2"/>
-        <enum name="all" value="3"/>
+    <attr name="border_bottom_adjust_padding" format="enum">
+        <enum name="none" value="0" />
+        <enum name="left" value="1" />
+        <enum name="right" value="2" />
+        <enum name="all" value="3" />
     </attr>
     <attr name="border_top_color" format="color" />
     <attr name="border_top_width" format="dimension" />
-    <attr name="border_top_adjust_padding" format="enum" >
-        <enum name="none" value="0"/>
-        <enum name="left" value="1"/>
-        <enum name="right" value="2"/>
-        <enum name="all" value="3"/>
+    <attr name="border_top_adjust_padding" format="enum">
+        <enum name="none" value="0" />
+        <enum name="left" value="1" />
+        <enum name="right" value="2" />
+        <enum name="all" value="3" />
     </attr>
 
     <declare-styleable name="BaseLineView">
         <attr name="border_bottom_adjust_padding" />
-        <attr name="border_top_adjust_padding" />
         <attr name="border_bottom_color" />
         <attr name="border_bottom_width" />
+        <attr name="border_top_adjust_padding" />
         <attr name="border_top_color" />
         <attr name="border_top_width" />
-        <attr name="lv_label_content_background" format="reference" />
+        <attr name="lv_content_background" format="reference" />
+        <attr name="lv_content_height" format="dimension" />
         <attr name="lv_label_padding" format="dimension" />
         <attr name="lv_label" format="string" />
-        <attr name="lv_height" format="dimension" />
         <attr name="lv_label_align" format="enum">
             <enum name="start" value="0" />
             <enum name="center" value="1" />

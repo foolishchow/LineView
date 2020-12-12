@@ -21,6 +21,9 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 import static android.view.View.MeasureSpec.makeMeasureSpec;
 
 /**
@@ -58,6 +61,7 @@ public abstract class BaseLineView extends ViewGroup {
     private static final int LABEL_TEXT_ALIGN_CENTER = 1;
     private static final int LABEL_TEXT_ALIGN_END = 2;
 
+    @Retention(RetentionPolicy.SOURCE)
     @IntDef({LABEL_TEXT_ALIGN_START, LABEL_TEXT_ALIGN_CENTER, LABEL_TEXT_ALIGN_END})
     public @interface LabelTextAlign {
     }
@@ -67,6 +71,7 @@ public abstract class BaseLineView extends ViewGroup {
     public static final int BORDER_ADJUST_PADDING_RIGHT = 2;
     public static final int BORDER_ADJUST_PADDING_ALL = 3;
 
+    @Retention(RetentionPolicy.SOURCE)
     @IntDef({BORDER_ADJUST_PADDING_NONE, BORDER_ADJUST_PADDING_LEFT, BORDER_ADJUST_PADDING_RIGHT, BORDER_ADJUST_PADDING_ALL})
     public @interface BorderAdjustPadding {
     }
@@ -74,15 +79,20 @@ public abstract class BaseLineView extends ViewGroup {
     private float mLeftIconWidth;
     private float mLeftIconHeight;
     private int mLeftIconSrc = -1;
+
+
     private int mRightIconSrc = -1;
+
     @Nullable
-    private String labelText = "";
+    private String mLabelText = "";
     private int mLabelTextColor;
     private int mLabelWidth;
     @LabelTextAlign
     private int mLabelAlign;
     private int mLabelTextSize;
     private int mLabelPadding;
+
+    private float mContentHeight = LayoutParams.WRAP_CONTENT;
     private int mContentBackground = -1;
 
     @BorderAdjustPadding
@@ -95,30 +105,33 @@ public abstract class BaseLineView extends ViewGroup {
     private int mBorderBottomWidth = 0;
     private int mBorderBottomColor = Color.rgb(0xee, 0xee, 0xee);
 
-    private float mLineHeight = -1;
 
     private void initAttribute(Context context, @Nullable AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.BaseLineView);
-        mBorderBottomAdjustPadding = typedArray.getInt(R.styleable.BaseLineView_border_bottom_adjust_padding, BORDER_ADJUST_PADDING_NONE);
-        mBorderTopAdjustPadding = typedArray.getInt(R.styleable.BaseLineView_border_top_adjust_padding, BORDER_ADJUST_PADDING_NONE);
+
+        mLeftIconWidth = typedArray.getDimension(R.styleable.BaseLineView_lv_left_icon_width, LayoutParams.WRAP_CONTENT);
+        mLeftIconHeight = typedArray.getDimension(R.styleable.BaseLineView_lv_left_icon_height, LayoutParams.WRAP_CONTENT);
         mLeftIconSrc = typedArray.getResourceId(R.styleable.BaseLineView_lv_left_icon, -1);
+
         mRightIconSrc = typedArray.getResourceId(R.styleable.BaseLineView_lv_right_icon, -1);
-        labelText = typedArray.getString(R.styleable.BaseLineView_lv_label);
+
+        mLabelText = typedArray.getString(R.styleable.BaseLineView_lv_label);
         mLabelTextSize = typedArray.getDimensionPixelSize(R.styleable.BaseLineView_lv_label_text_size, SizeUtils.sp2px(14));
         mLabelPadding = typedArray.getDimensionPixelSize(R.styleable.BaseLineView_lv_label_padding, 0);
         mLabelTextColor = typedArray.getInt(R.styleable.BaseLineView_lv_label_color, Color.rgb(0x99, 0x99, 0x99));
         mLabelWidth = typedArray.getDimensionPixelSize(R.styleable.BaseLineView_lv_label_width, LayoutParams.WRAP_CONTENT);
         mLabelAlign = typedArray.getInt(R.styleable.BaseLineView_lv_label_align, LABEL_TEXT_ALIGN_START);
-        mContentBackground = typedArray.getResourceId(R.styleable.BaseLineView_lv_label_content_background, -1);
-        mLeftIconWidth = typedArray.getDimension(R.styleable.BaseLineView_lv_left_icon_width, LayoutParams.WRAP_CONTENT);
-        mLeftIconHeight = typedArray.getDimension(R.styleable.BaseLineView_lv_left_icon_height, LayoutParams.WRAP_CONTENT);
 
-        mBorderTopWidth = (int) typedArray.getDimension(R.styleable.BaseLineView_border_top_width, 0);
-        mBorderBottomWidth = (int) typedArray.getDimension(R.styleable.BaseLineView_border_bottom_width, 0);
+        mContentHeight = typedArray.getDimension(R.styleable.BaseLineView_lv_content_height,LayoutParams.WRAP_CONTENT);
+        mContentBackground = typedArray.getResourceId(R.styleable.BaseLineView_lv_content_background, -1);
+
         mBorderTopColor = typedArray.getColor(R.styleable.BaseLineView_border_top_color, mBorderTopColor);
-        mBorderBottomColor = typedArray.getColor(R.styleable.BaseLineView_border_bottom_color, mBorderBottomColor);
+        mBorderTopWidth = (int) typedArray.getDimension(R.styleable.BaseLineView_border_top_width, 0);
+        mBorderBottomAdjustPadding = typedArray.getInt(R.styleable.BaseLineView_border_bottom_adjust_padding, BORDER_ADJUST_PADDING_NONE);
 
-        mLineHeight = typedArray.getDimension(R.styleable.BaseLineView_lv_height,-1);
+        mBorderBottomWidth = (int) typedArray.getDimension(R.styleable.BaseLineView_border_bottom_width, 0);
+        mBorderBottomColor = typedArray.getColor(R.styleable.BaseLineView_border_bottom_color, mBorderBottomColor);
+        mBorderTopAdjustPadding = typedArray.getInt(R.styleable.BaseLineView_border_top_adjust_padding, BORDER_ADJUST_PADDING_NONE);
 
         typedArray.recycle();
         setUp();
@@ -140,7 +153,7 @@ public abstract class BaseLineView extends ViewGroup {
         }
         mLabel.setTextColor(mLabelTextColor);
         mLabel.setTextSize(TypedValue.COMPLEX_UNIT_PX, mLabelTextSize);
-        setLabelText(labelText);
+        setLabelText(mLabelText);
         if (mLabelAlign == LABEL_TEXT_ALIGN_CENTER) {
             mLabel.setGravity(Gravity.CENTER_HORIZONTAL);
         } else if (mLabelAlign == LABEL_TEXT_ALIGN_END) {
@@ -155,11 +168,15 @@ public abstract class BaseLineView extends ViewGroup {
         if (mContentBackground != -1) {
             mContent.setBackground(ContextCompat.getDrawable(getContext(), mContentBackground));
         }
+        LayoutParams lp = mContent.getLayoutParams();
+        lp.height = (int) mContentHeight;
+        mContent.setLayoutParams(lp);
+
     }
 
-    public void setLabelText(@Nullable String newLabelText) {
-        if (newLabelText != null && mLabel != null) {
-            mLabel.setText(newLabelText);
+    public void setLabelText(@Nullable String labelText) {
+        if (labelText != null && mLabel != null) {
+            mLabel.setText(labelText);
         }
     }
 
