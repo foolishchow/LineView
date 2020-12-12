@@ -44,17 +44,6 @@ public class SubScriptedTextView extends AppCompatTextView {
     }
 
     @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-    }
-
-
-    @Override
     public void setText(CharSequence text, BufferType type) {
         if(mLeftSubScript != null || mRightSubScript != null){
             super.setText(createText(text),BufferType.SPANNABLE);
