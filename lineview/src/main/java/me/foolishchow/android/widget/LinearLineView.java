@@ -1,4 +1,4 @@
-package me.foolishchow.android.lineview;
+package me.foolishchow.android.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

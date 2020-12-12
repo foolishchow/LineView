@@ -1,4 +1,4 @@
-package me.foolishchow.android.lineview;
+package me.foolishchow.android.subscriptedtextview;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("me.foolishchow.android.lineview.test", appContext.getPackageName());
+        assertEquals("me.foolishchow.android.subscriptedtextview.test", appContext.getPackageName());
     }
 }
