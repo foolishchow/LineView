@@ -10,56 +10,11 @@
     <me.foolishchow.android.widget.LinearLineView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ff00ff"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        app:border_bottom_color="#333333"
-        app:border_bottom_width="0dp"
-        app:lv_content_background="@drawable/bg_test"
-        app:lv_content_height="44dp"
-        app:lv_content_padding_left="10dp"
-        app:lv_content_padding_right="10dp"
-        app:lv_label="标签1"
-        app:lv_label_color="@color/colorPrimary"
-        app:lv_label_text_size="20dp"
-        app:lv_left_icon="@mipmap/line_view_icon_common_search_drak"
-        app:lv_right_icon="@mipmap/line_view_icon_common_right"
-        tools:ignore="PxUsage">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:background="#ffff00"
-            android:text="aaaa" />
-
-        <me.foolishchow.android.widget.SubScriptedTextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:background="#ffff00"
-            app:ss_left_text="$"
-            app:ss_left_text_size="10dp"
-            app:ss_left_text_color="#FF3F25"
-            app:ss_right_text="%"
-            app:ss_right_text_size="10dp"
-            app:ss_right_text_color="#999999"
-            android:text="90"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-    </me.foolishchow.android.widget.LinearLineView>
-
-    <me.foolishchow.android.widget.RelativeLineView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
         app:border_bottom_color="#333333"
         app:border_bottom_width="2px"
-        app:lv_content_background="@drawable/bg_test"
-        app:lv_content_height="40dp"
+        app:lv_content_height="44dp"
         app:lv_label="标签1"
         app:lv_label_color="@color/colorPrimary"
         app:lv_label_text_size="20dp"
@@ -70,9 +25,103 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:background="#ffff00"
-            android:text="aaaa" />
+            android:layout_gravity="center_vertical"
+            android:textAppearance="@style/TextFont.Regular"
+            android:text="你好Abc"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textAppearance="@style/TextFont.Medium"
+            android:text="你好Abc"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textAppearance="@style/TextFont.Regular"
+            android:text="你好Abc"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <!--        <TextView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="center_vertical"-->
+        <!--            android:fontFamily="@font/pingfang_medium"-->
+        <!--            android:text="你好Abc"-->
+        <!--            android:textStyle="bold"-->
+        <!--            android:textSize="20dp" />-->
+
+    </me.foolishchow.android.widget.LinearLineView>
+
+    <!--    <me.foolishchow.android.widget.LinearLineView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:paddingLeft="12dp"-->
+    <!--        android:paddingRight="12dp"-->
+    <!--        app:border_bottom_color="#333333"-->
+    <!--        app:border_bottom_width="2px"-->
+    <!--        app:lv_content_height="44dp"-->
+    <!--        app:lv_label="标签1"-->
+    <!--        app:lv_label_color="@color/colorPrimary"-->
+    <!--        app:lv_label_text_size="20dp"-->
+    <!--        app:lv_left_icon="@mipmap/line_view_icon_common_search_drak"-->
+    <!--        app:lv_right_icon="@mipmap/line_view_icon_common_right"-->
+    <!--        tools:ignore="PxUsage">-->
+
+    <!--        <TextView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_gravity="center_vertical"-->
+    <!--            android:fontFamily="@font/pingfang_old"-->
+    <!--            android:text="你好Abc"-->
+    <!--            android:textFontWeight="400"-->
+    <!--            android:textSize="20dp" />-->
+
+    <!--        <TextView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_gravity="center_vertical"-->
+    <!--            android:fontFamily="@font/pingfang_old"-->
+    <!--            android:text="你好Abc"-->
+    <!--            android:textStyle="bold"-->
+    <!--            android:textSize="20dp" />-->
+
+    <!--    </me.foolishchow.android.widget.LinearLineView>-->
+
+    <me.foolishchow.android.widget.RelativeLineView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        app:border_bottom_color="#333333"
+        app:border_bottom_width="2px"
+        app:lv_content_height="44dp"
+        app:lv_label="标签1"
+        app:lv_label_color="@color/colorPrimary"
+        app:lv_label_text_size="20dp"
+        app:lv_left_icon="@mipmap/line_view_icon_common_search_drak"
+        app:lv_right_icon="@mipmap/line_view_icon_common_right"
+        tools:ignore="PxUsage">
+
+        <me.foolishchow.android.widget.SubScriptedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/butter"
+            android:text="$90你好"
+            android:textSize="20dp"
+            app:ss_left_text="$"
+            app:ss_left_text_color="#FF3F25"
+            app:ss_left_text_size="20dp"
+            app:ss_right_text="%"
+            app:ss_right_text_color="#999999"
+            app:ss_right_text_size="10dp" />
     </me.foolishchow.android.widget.RelativeLineView>
 
 </LinearLayout>

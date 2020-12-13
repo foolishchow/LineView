@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextFont.Regular" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/pingfang</item>
+    </style>
+    <style name="TextFont.Medium" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/pingfang_medium</item>
+    </style>
+</resources>
