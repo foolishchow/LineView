@@ -26,7 +26,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:textAppearance="@style/TextFont.Regular"
             android:text="你好Abc"
             android:textSize="20dp" />
 
@@ -34,7 +33,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:textAppearance="@style/TextFont.Medium"
             android:text="你好Abc"
             android:textSize="20dp" />
 
@@ -42,7 +40,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:textAppearance="@style/TextFont.Regular"
             android:text="你好Abc"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -106,22 +103,21 @@
         app:lv_label_text_size="20dp"
         app:lv_left_icon="@mipmap/line_view_icon_common_search_drak"
         app:lv_right_icon="@mipmap/line_view_icon_common_right"
-        tools:ignore="PxUsage">
-
-        <me.foolishchow.android.widget.SubScriptedTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:fontFamily="@font/butter"
-            android:text="$90你好"
-            android:textSize="20dp"
-            app:ss_left_text="$"
-            app:ss_left_text_color="#FF3F25"
-            app:ss_left_text_size="20dp"
-            app:ss_right_text="%"
-            app:ss_right_text_color="#999999"
-            app:ss_right_text_size="10dp" />
-    </me.foolishchow.android.widget.RelativeLineView>
-
+        tools:ignore="PxUsage"/>
+    <me.foolishchow.android.widget.SubScriptedTextView
+        android:id="@+id/ss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="$90你好"
+        android:textSize="25dp"
+        app:ss_left_text_align="top"
+        app:ss_right_text_align="center"
+        app:ss_left_text="#2020年"
+        app:ss_left_text_color="#FF3F25"
+        app:ss_left_text_size="10dp"
+        app:ss_right_text="125%"
+        app:ss_right_text_color="#999999"
+        app:ss_right_text_size="10dp" />
 </LinearLayout>

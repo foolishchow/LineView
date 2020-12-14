@@ -39,7 +39,7 @@ publish {
     userOrg = rootProject.userOrg
     groupId = rootProject.groupId
     //uploadName = rootProject.uploadName
-    publishVersion = rootProject.publishVersion
+    publishVersion = "0.0.2"//rootProject.publishVersion
     desc = rootProject.desc
     website = rootProject.website
 }
