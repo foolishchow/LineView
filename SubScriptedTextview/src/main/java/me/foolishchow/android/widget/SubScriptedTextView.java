@@ -17,6 +17,7 @@ import android.text.style.ReplacementSpan;
 import android.text.style.TypefaceSpan;
 import android.util.AttributeSet;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -100,11 +101,11 @@ public class SubScriptedTextView extends AppCompatTextView {
         if (textSize != -1) {
             spannableString.setSpan(new AbsoluteSizeSpan(textSize), 0, end, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         }
-
         int textColor = ta.getColor(textColorIndex, -1);
         if (textColor != -1) {
             spannableString.setSpan(new ForegroundColorSpan(textColor), 0, end, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         }
+
         int fontFamily = -1;
         Typeface font = null;
         try {
@@ -113,7 +114,7 @@ public class SubScriptedTextView extends AppCompatTextView {
                 font = ResourcesCompat.getFont(getContext(), fontFamily);
                 spannableString.setSpan(new CustomTypefaceSpan(font), 0, end, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
 
@@ -124,7 +125,7 @@ public class SubScriptedTextView extends AppCompatTextView {
             if (size == -1) {
                 size = getTextSize();
             }
-            spannableString.setSpan(new VerticalAlignSpan(font, align, size), 0, end,
+            spannableString.setSpan(new VerticalAlignSpan(font, align, textColor, size), 0, end,
                     Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         }
 
@@ -215,27 +216,33 @@ public class SubScriptedTextView extends AppCompatTextView {
         @Nullable
         private Typeface mTypeface;
 
+        @ColorInt
+        private int mColor;
+
         public VerticalAlignSpan(
                 @Nullable Typeface typeface,
                 @VerticalAlign int align,
-                float fontSizeSp
+                @ColorInt int color,
+                float fontSize
         ) {
             mTypeface = typeface;
             mAlign = align;
-            mFontSize = fontSizeSp;
+            mFontSize = fontSize;
+            mColor = color;
         }
 
         @Override
-        public int getSize(Paint paint, CharSequence text, int start, int end, Paint.FontMetricsInt fm) {
+        public int getSize(@NonNull Paint paint, CharSequence text, int start, int end,
+                           Paint.FontMetricsInt fm) {
             text = text.subSequence(start, end);
             Paint p = getCustomTextPaint(paint);
             return (int) p.measureText(text.toString());
         }
 
         @Override
-        public void draw(Canvas canvas, CharSequence text,
+        public void draw(@NonNull Canvas canvas, CharSequence text,
                          int start, int end, float x, int top, int y, int bottom,
-                         Paint paint) {
+                         @NonNull Paint paint) {
             text = text.subSequence(start, end);
             Paint p = getCustomTextPaint(paint);
             Paint.FontMetricsInt fm = p.getFontMetricsInt();
@@ -244,13 +251,16 @@ public class SubScriptedTextView extends AppCompatTextView {
                         y - ((y + fm.descent + y + fm.ascent) - (bottom + top)) * .5f, p);
             } else {
                 canvas.drawText(text.toString(), x,
-                        y  + fm.ascent, p);
+                        y + fm.ascent, p);
             }
             //此处重新计算y坐标，使字体居中
         }
 
         private TextPaint getCustomTextPaint(Paint srcPaint) {
             TextPaint paint = new TextPaint(srcPaint);
+            if (mColor != -1) {
+                paint.setColor(mColor);
+            }
             paint.setTextSize(mFontSize);   //设定字体大小
             if (mTypeface != null) {
                 paint.setTypeface(mTypeface);

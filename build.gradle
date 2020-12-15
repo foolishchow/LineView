@@ -29,7 +29,7 @@ ext {
     userOrg = 'foolishchow'
     groupId = 'me.foolishchow.android'
     uploadName = 'android'
-    publishVersion = '0.0.1'
+    publishVersion = '0.0.2'
     desc = "android line view"
     website = 'https://github.com/foolishchow/LineView.git'
 }
