@@ -1,4 +1,4 @@
 include ':SubScriptedTextview'
-//include ':lineview'
-//include ':app'
+include ':lineview'
+include ':app'
 rootProject.name = "LineViewApp"

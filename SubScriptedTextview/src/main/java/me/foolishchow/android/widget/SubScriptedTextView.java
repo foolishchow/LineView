@@ -54,6 +54,8 @@ public class SubScriptedTextView extends AppCompatTextView {
     @Nullable
     private SpannableString mRightSubScript;
 
+    @Nullable
+    private SpannableString mBottomSubScript;
 
     private void initAttribute(Context context, @Nullable AttributeSet attrs) {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.SubScriptedTextView);
@@ -63,7 +65,6 @@ public class SubScriptedTextView extends AppCompatTextView {
             mLeftSubScript = createSubscript(leftSubscript, ta,
                     R.styleable.SubScriptedTextView_ss_left_text_size,
                     R.styleable.SubScriptedTextView_ss_left_text_color,
-                    R.styleable.SubScriptedTextView_ss_left_text_padding,
                     R.styleable.SubScriptedTextView_ss_left_font_family,
                     R.styleable.SubScriptedTextView_ss_left_text_align
             );
@@ -74,9 +75,17 @@ public class SubScriptedTextView extends AppCompatTextView {
             mRightSubScript = createSubscript(rightSubScript, ta,
                     R.styleable.SubScriptedTextView_ss_right_text_size,
                     R.styleable.SubScriptedTextView_ss_right_text_color,
-                    R.styleable.SubScriptedTextView_ss_right_text_padding,
                     R.styleable.SubScriptedTextView_ss_right_font_family,
                     R.styleable.SubScriptedTextView_ss_right_text_align
+            );
+        }
+        String bottomSubScript = ta.getString(R.styleable.SubScriptedTextView_ss_bottom_text);
+        if (!TextUtils.isEmpty(bottomSubScript)) {
+            mBottomSubScript = createSubscript(bottomSubScript, ta,
+                    R.styleable.SubScriptedTextView_ss_bottom_text_size,
+                    R.styleable.SubScriptedTextView_ss_bottom_text_color,
+                    R.styleable.SubScriptedTextView_ss_bottom_font_family,
+                    R.styleable.SubScriptedTextView_ss_bottom_text_align
             );
         }
         ta.recycle();
@@ -90,7 +99,6 @@ public class SubScriptedTextView extends AppCompatTextView {
             TypedArray ta,
             @StyleableRes int textSizeIndex,
             @StyleableRes int textColorIndex,
-            @StyleableRes int textPadding,
             @StyleableRes int textFontFamily,
             @StyleableRes int textVerticalAlign
     ) {
@@ -156,6 +164,10 @@ public class SubScriptedTextView extends AppCompatTextView {
         mTextBuilder.append(text);
         if (mRightSubScript != null) {
             mTextBuilder.append(mRightSubScript);
+        }
+        if(mBottomSubScript != null){
+            mTextBuilder
+                    .append("\n").append(mBottomSubScript);
         }
         return mTextBuilder;
     }
