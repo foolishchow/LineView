@@ -1,6 +1,6 @@
 LineView
 
-![screenshot](./screenshot/screenshot.jpg)
+![screenshot](./screenshot.jpg)
 
 ## usage
 ```gradle
