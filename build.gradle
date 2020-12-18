@@ -22,14 +22,3 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
-
-ext {
-    repoName = "android"
-    userOrg = 'foolishchow'
-    groupId = 'me.foolishchow.android'
-    uploadName = 'android'
-    publishVersion = '0.0.2'
-    desc = "android line view"
-    website = 'https://github.com/foolishchow/LineView.git'
-}

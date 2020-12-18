@@ -23,8 +23,8 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    //implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.annotation:annotation:1.1.0'
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -34,12 +34,12 @@ dependencies {
 apply plugin: 'bintray-release'
 //添加
 publish {
-    repoName = rootProject.repoName
+    repoName = "android"
     artifactId = 'lineview'
-    userOrg = rootProject.userOrg
-    groupId = rootProject.groupId
+    userOrg = 'foolishchow'
+    groupId = 'me.foolishchow.android'
     //uploadName = rootProject.uploadName
-    publishVersion = "0.0.1"//rootProject.publishVersion
-    desc = rootProject.desc
-    website = rootProject.website
+    publishVersion = "0.0.3"//rootProject.publishVersion
+    desc = "android simple line view"
+    website = 'https://github.com/foolishchow/LineView.git'
 }

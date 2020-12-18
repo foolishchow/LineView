@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="30dp"
+    tools:context=".MainActivity">
+
+    <me.foolishchow.android.widget.LinearLineView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        app:border_bottom_color="#dddddd"
+        app:border_bottom_width="2px"
+        app:border_top_color="#dddddd"
+        app:border_top_width="2px"
+        app:lv_content_height="44dp"
+        app:lv_label="first step:"
+        app:lv_label_align="end"
+        app:lv_label_color="@color/colorAccent"
+        app:lv_label_text_size="20dp"
+        app:lv_label_width="120dp"
+        app:lv_left_icon="@mipmap/line_view_icon_common_search_drak"
+        app:lv_right_icon="@mipmap/line_view_icon_common_right"
+        tools:ignore="PxUsage">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="how"
+            android:textSize="20dp"
+            tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="are"
+            android:textSize="20dp"
+            tools:ignore="HardcodedText,SpUsage" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="you"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,SpUsage" />
+
+
+    </me.foolishchow.android.widget.LinearLineView>
+
+    <me.foolishchow.android.widget.RelativeLineView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        app:border_bottom_color="#dddddd"
+        app:border_bottom_width="2px"
+        app:lv_content_height="44dp"
+        app:lv_label="second step:"
+        app:lv_label_align="end"
+        app:lv_label_color="@color/colorPrimary"
+        app:lv_label_text_size="20dp"
+        app:lv_label_width="120dp"
+        app:lv_left_icon="@mipmap/line_view_icon_common_search_drak"
+        app:lv_right_icon="@mipmap/line_view_icon_common_right"
+        tools:ignore="PxUsage">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="fine"
+            android:textSize="20dp"
+            tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="thank"
+            android:textSize="20dp"
+            tools:ignore="HardcodedText,SpUsage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="you"
+            android:textSize="20dp"
+            tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+
+    </me.foolishchow.android.widget.RelativeLineView>
+
+
+</LinearLayout>

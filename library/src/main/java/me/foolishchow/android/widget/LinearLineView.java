@@ -54,7 +54,6 @@ public class LinearLineView extends BaseLineView {
         lp.weight = a.getFloat(R.styleable.LinearLineView_Layout_android_layout_weight, 0);
         lp.gravity = a.getInt(R.styleable.LinearLineView_Layout_android_layout_gravity, -1);
         a.recycle();
-
         return lp;
     }
 }

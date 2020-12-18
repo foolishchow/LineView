@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -15,11 +16,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.IntDef;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.core.content.ContextCompat;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -180,12 +181,20 @@ public abstract class BaseLineView extends ViewGroup {
             mLabel.setPadding(mLabelPadding, 0, 0, 0);
         }
         if (mContentBackground != -1) {
-            mContent.setBackground(ContextCompat.getDrawable(getContext(), mContentBackground));
+            mContent.setBackground(getDrawable(mContentBackground));
         }
         LayoutParams lp = mContent.getLayoutParams();
         lp.height = mContentHeight;
         mContent.setLayoutParams(lp);
         mContent.setPadding(mContentPaddingLeft, mContentPaddingTop, mContentPaddingRight, mContentPaddingBottom);
+    }
+
+    private Drawable getDrawable(@DrawableRes int id) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            return getContext().getDrawable(id);
+        } else {
+            return getContext().getResources().getDrawable(id);
+        }
     }
 
     public void setLabelText(@Nullable String labelText) {
