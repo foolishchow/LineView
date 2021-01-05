@@ -2,6 +2,7 @@ package me.foolishchow.android.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -433,5 +434,35 @@ public abstract class BaseLineView extends ViewGroup {
         return mContent != null;
     }
 
+
+    public void setLeftIcon(@DrawableRes int id) {
+        mRightIcon.setImageResource(id);
+        mRightIcon.setVisibility(VISIBLE);
+    }
+
+    public void setLeftIcon(@Nullable Drawable drawable) {
+        mRightIcon.setImageDrawable(drawable);
+        mRightIcon.setVisibility(VISIBLE);
+    }
+
+    public void setLeftIcon(@Nullable Bitmap bitmap) {
+        mRightIcon.setImageBitmap(bitmap);
+        mRightIcon.setVisibility(VISIBLE);
+    }
+
+    public void setRightIcon(@DrawableRes int id) {
+        mRightIcon.setImageResource(id);
+        mRightIcon.setVisibility(VISIBLE);
+    }
+
+    public void setRightIcon(@Nullable Drawable drawable) {
+        mRightIcon.setImageDrawable(drawable);
+        mRightIcon.setVisibility(VISIBLE);
+    }
+
+    public void setRightIcon(@Nullable Bitmap bitmap) {
+        mRightIcon.setImageBitmap(bitmap);
+        mRightIcon.setVisibility(VISIBLE);
+    }
 
 }
