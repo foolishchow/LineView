@@ -436,18 +436,18 @@ public abstract class BaseLineView extends ViewGroup {
 
 
     public void setLeftIcon(@DrawableRes int id) {
-        mRightIcon.setImageResource(id);
-        mRightIcon.setVisibility(VISIBLE);
+        mLeftIcon.setImageResource(id);
+        mLeftIcon.setVisibility(VISIBLE);
     }
 
     public void setLeftIcon(@Nullable Drawable drawable) {
-        mRightIcon.setImageDrawable(drawable);
-        mRightIcon.setVisibility(VISIBLE);
+        mLeftIcon.setImageDrawable(drawable);
+        mLeftIcon.setVisibility(VISIBLE);
     }
 
     public void setLeftIcon(@Nullable Bitmap bitmap) {
-        mRightIcon.setImageBitmap(bitmap);
-        mRightIcon.setVisibility(VISIBLE);
+        mLeftIcon.setImageBitmap(bitmap);
+        mLeftIcon.setVisibility(VISIBLE);
     }
 
     public void setRightIcon(@DrawableRes int id) {
