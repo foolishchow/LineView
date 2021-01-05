@@ -39,7 +39,7 @@ publish {
     userOrg = 'foolishchow'
     groupId = 'me.foolishchow.android'
     //uploadName = rootProject.uploadName
-    publishVersion = "0.0.4"//rootProject.publishVersion
+    publishVersion = "0.0.5"//rootProject.publishVersion
     desc = "android simple line view"
     website = 'https://github.com/foolishchow/LineView.git'
 }
